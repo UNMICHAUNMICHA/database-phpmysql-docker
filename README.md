@@ -11,6 +11,8 @@ sudo apt install -y ca-certificates curl gnupg
 
 
 3. เพิ่ม GPG Key และ Repository ของ Docker
+
+
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo tee /etc/apt/keyrings/docker.asc > /dev/null
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -21,15 +23,16 @@ echo \
 sudo apt update
 
 
-4. ติดตั้ง Docker Engine
+5. ติดตั้ง Docker Engine
+
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-5. ตรวจสอบการติดตั้ง
+7. ตรวจสอบการติดตั้ง
 ตรวจสอบว่า Docker ทำงานได้ถูกต้องโดยรัน:
 
 sudo systemctl status docker
 
-7. อนุญาตให้ใช้งาน Docker โดยไม่ต้องใช้ sudo (ตัวเลือกเสริม)
+ อนุญาตให้ใช้งาน Docker โดยไม่ต้องใช้ sudo (ตัวเลือกเสริม)
 ค่าเริ่มต้นต้องใช้ sudo ทุกครั้งในการรัน Docker ถ้าต้องการใช้งานโดยไม่ต้องใช้ sudo ให้เพิ่ม user ของคุณเข้าไปในกลุ่ม docker:
 
 sudo usermod -aG docker $USER
