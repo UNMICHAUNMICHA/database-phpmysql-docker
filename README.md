@@ -1,7 +1,7 @@
 1. อัปเดตระบบ
 ก่อนอื่นให้รันคำสั่งต่อไปนี้เพื่ออัปเดต package index ของระบบ:
 
-sudo apt update
+sudo apt update &&
 sudo apt upgrade -y
 
 2. ติดตั้งแพ็กเกจที่จำเป็น
