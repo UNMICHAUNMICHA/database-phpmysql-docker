@@ -1,21 +1,29 @@
-version: '3.7'
-
 services:
   db:
     image: mysql:latest
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456789
-      MYSQL_DATABASE: your_database_name
-      MYSQL_USER: your_username
-      MYSQL_PASSWORD: your_password
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypass
     volumes:
       - ./mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
 
+  php-apache:
+    image: php:apache
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - "8081:80"
+
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin:latest
     restart: always
     depends_on:
       - db
